@@ -2,6 +2,22 @@
 {% load bootstrap4 %}
 {% load static %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+
+<label>Filter By:</label>
+
+
+{% if filter_type == "latest" %}
+    <select name="filter" id="filter_dropdown">
+        <option value="{% url 'forum:post_list_latest' filter='latest' %}">Latest</option>
+        <option value="{% url 'forum:post_list_popular' filter='popular' %}">Most Popular</option>
+    </select>
+{% elif filter_type == "popular" %}
+    <select name="filter" id="filter_dropdown">
+        <option value="{% url 'forum:post_list_popular' filter='popular' %}">Most Popular</option>
+        <option value="{% url 'forum:post_list_latest' filter='latest' %}">Latest</option>
+    </select>
+{% endif %}
 
 {% for post in posts %}
     <p>
@@ -16,10 +32,23 @@
 
 {% endfor %}
 
-<form method="POST" action="{% url 'forum:post_list' %}" enctype="multipart/form-data">
+<form method="POST" action="{% url 'forum:post_list_latest' filter='latest' %}" enctype="multipart/form-data">
     {% csrf_token %}
     {% bootstrap_form create_post_form %}
     {% bootstrap_form add_image_form %}
     <input type="submit" class="btn btn-primary" value="Create Post"
                                     name="create_post">
 </form>
+
+<script>
+    $(function(){
+      // bind change event to select
+        $('#filter_dropdown').on('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+        }
+        return false;
+        });
+    });
+</script>

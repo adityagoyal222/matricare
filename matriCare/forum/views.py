@@ -12,8 +12,15 @@ class PostListView(FormView, TemplateView):
     form_class = CreatePostForm
 
     def get_context_data(self, **kwargs):
-        posts = Post.objects.all()
         context = super(PostListView, self).get_context_data(**kwargs)
+
+        if self.kwargs['filter'] == "latest":
+            posts = Post.objects.all()
+            context['filter_type'] = "latest"
+        elif self.kwargs['filter'] == "popular":
+            posts = Post.objects.order_by('-likes')
+            context['filter_type'] = "popular"
+        
         context['posts'] = posts
 
         if 'create_post_form' not in context:
@@ -23,9 +30,6 @@ class PostListView(FormView, TemplateView):
             context['add_image_form'] = AddImageForm()
 
         return context
-
-    # def get_queryset(self):
-    #     pass
 
     def post(self, request, *args, **kwargs):
         
