@@ -1,0 +1,87 @@
+{% load bootstrap4 %}
+{% load customtags %}
+{% load static %}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<p>
+    {{post.author}}
+</p>
+<p>
+    {{post.title}}
+</p>
+<p>
+    {{post.text_content}}
+</p>
+<form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
+    {% csrf_token %}
+    {% if liked_post %}
+        <input type="submit" class="btn btn-danger" id="post-dislike" value="Dislike" name="dislike_post">
+    {% else %}
+        <input type="submit" class="btn btn-success" id="post-like" value="Like" name="like_post">
+    {% endif %}
+
+</form>
+
+<p>Likes: {{post.likes}}   Comments: {{post.comment.count}}</p>
+<img src="{{ post_image.url }}" style="object-fit: cover; height: 150px; width: 250px;">
+
+<form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
+    {% csrf_token %}
+    {% bootstrap_form comment_form %}
+    <input type="submit" class="btn btn-primary" value="Add Comment"
+                                    name="add_comment">
+</form>
+
+{% for comment in comments %}
+    <p>{{comment.commentor}}
+    {{comment.comment}}
+    {{comment.likes}}</p>
+
+    <form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
+        {% csrf_token %}
+        <input type="hidden" name="comment_data" value="{{comment.pk}}">
+        
+        {% if comment|liked_comment:user %}
+            hello
+            <input type="submit" class="btn btn-danger dislike-comment" id="comment-dislike-{{comment.pk}}" value="Dislike" name="dislike_comment">
+        {% else %}
+            nope
+            <input type="submit" class="btn btn-success" id="comment-like-{{comment.pk}}" value="Like" name="like_comment">
+        {% endif %}
+    </form>
+{% endfor %}
+
+<script>
+    $(document).ready(function() {
+        // $("#post-like").show();
+        // $("#post-dislike").hide();
+
+        // $("#post-like").click(function() {
+        //     $("#post-like").hide();
+        //     $("#post-dislike").show();
+        // });
+        // $("#post-dislike").click(function() {
+        //     $("#post-dislike").hide();
+        //     $("#post-like").show();
+        // });
+
+        // function show_func(id) {
+        //     $('comment-dislike-' + id).show();
+        //     $('comment-like-' + id).hide();
+        // }
+        // function hide_func(id) {
+        //     $('comment-dislike-' + id).hide();
+        //     $('comment-like-' + id).show();
+        // }        
+
+        // $("#comment-like-{{comment.pk}}").click(function() {
+        //     $("#comment-like-{{comment.pk}}").hide();
+        //     $("#comment-dislike-{{comment.pk}}").show();
+        // });
+        // $("#comment-dislike-{{comment.pk}}").click(function() {
+        //     $("#comment-dislike-{{comment.pk}}").hide();
+        //     $("#comment-like-{{comment.pk}}").show();
+        // });
+    });
+</script>
