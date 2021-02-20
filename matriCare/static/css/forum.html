@@ -1,0 +1,426 @@
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Forum</title>
+
+        <!-- links for css and bootstrap -->
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+
+        <!-- custom css -->
+        <link rel="stylesheet" type="text/css" href="css/styleMatri.css">
+        <!-- logo for titlebar -->
+        <link rel="shortcut icon" href="images/logoMatri.png" type="image/x-icon">
+        <!-- scripts -->
+        <!-- <script type="text/javascript" src="script/nav.js"></script> -->
+
+        <style>
+            @media only screen and (max-width: 767px) {
+                .loginPic {
+                    display: none;
+                }
+            }
+        </style>
+
+    </head>
+
+    <body">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #FE8187;">
+            <a class="navbar-brand" href="#">
+                <img class="brandimg-bb" src="images/logoMain.png" height="40px">
+                <lable class="h4" style="color: white;">MatriCare</lable>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <form class="form-inline my-2 my-lg-0 mr-3">
+                    <input class="form-control mr-sm-2 border-0" type="search" placeholder="Search for topics"
+                        aria-label="Search">
+                    <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
+                <div class="form-inline my-2 my-lg-0">
+                    <a href="#" class="btn btn-light my-2 my-sm-0 btn-login" style="color: #FE8187;" type="">Login</a>
+                </div>
+
+            </div>
+        </nav>
+        <!--main body content -->
+        <div class="position-relative overflow-hidden py-0 px-4 m-0 mt-3">
+            <!-- popular posts -->
+            <div class="mt-4 mx-3">
+                <label class="h4 mb-4 mx-3">Popular posts:</label>
+                <div class="container-fluid row justify-content-start p-0 mx-0 mb-4">
+                    <!-- individual post -->
+                    <div class="col-lg-3 mx-3 mb-2 p-3 pt-1 px-4 rounded"
+                        style="background-color: #FFE484; min-height: 250px;">
+                        <a href="#" class="text-decoration-none" style="color: black;">
+                            <!-- post info -->
+                            <div class="mt-0" style="height: 40px;">
+                                <span class="picCircle"></span>
+                                <lable class="font-weight-normal" style="color: black;">amy98</lable>
+                                <lable class="font-weight-normal" style="color: black;">, posted on: </lable>
+                                <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                            </div>
+                            <!-- title and body -->
+                            <div class="mt-1 text-wrap text-break text-truncate" style=" max-height: 300px;">
+                                <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quibusdam
+                                    cum officia unde
+                                    veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                                    cumque,
+                                    perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                                    consectetur
+                                    adipisicing elit. Molestiae fugiat iusto inventore cumque asperiores possimus, eius
+                                    harum
+                                    fuga ducimus, nihil quam odit, iste adipisci quaerat dolorum fugit sunt repellendus
+                                    corporis?</p>
+                            </div>
+                        </a>
+                        <!-- interactions. Upvotes and comments -->
+                        <div class="mb-1 mt-2">
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/like.png" height="20px">
+                                <label class="mr-2">3</label>
+                            </a>
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/comment.png" height="20px">
+                                <label>5</label>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- end of individual post -->
+                    <!-- individual post -->
+                    <div class="col-lg-3 mx-3 mb-2 p-3 pt-1 px-4 rounded"
+                        style="background-color: #72DFEE; min-height: 250px;">
+                        <a href="#" class="text-decoration-none" style="color: black;">
+                            <!-- post info -->
+                            <div class="mt-0" style="height: 40px;">
+                                <span class="picCircle" style="background-color: #F59259;"></span>
+                                <lable class="font-weight-normal" style="color: black;">amy98</lable>
+                                <lable class="font-weight-normal" style="color: black;">, posted on: </lable>
+                                <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                            </div>
+                            <!-- title and body -->
+                            <div class="mt-1 text-wrap text-break text-truncate" style=" max-height: 300px;">
+                                <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quibusdam
+                                    cum officia unde
+                                    veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                                    cumque,
+                                    perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                                    consectetur
+                                    adipisicing elit. Molestiae fugiat iusto inventore cumque asperiores possimus, eius
+                                    harum
+                                    fuga ducimus, nihil quam odit, iste adipisci quaerat dolorum fugit sunt repellendus
+                                    corporis?</p>
+                            </div>
+                        </a>
+                        <!-- interactions. Upvotes and comments -->
+                        <div class="mb-1 mt-2">
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/like.png" height="20px">
+                                <label class="mr-2">3</label>
+                            </a>
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/comment.png" height="20px">
+                                <label>5</label>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- end of individual post -->
+
+                    <!-- individual post -->
+                    <div class="col-lg-3 mx-3 mb-2 p-3 pt-1 px-4 rounded"
+                        style="background-color: #FCAEE1; min-height: 250px;">
+                        <a href="#" class="text-decoration-none" style="color: black;">
+                            <!-- post info -->
+                            <div class="mt-0" style="height: 40px;">
+                                <span class="picCircle" style="background-color: #789c28;"></span>
+                                <lable class="font-weight-normal" style="color: black;">amy98</lable>
+                                <lable class="font-weight-normal" style="color: black;">, posted on: </lable>
+                                <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                            </div>
+                            <!-- title and body -->
+                            <div class="mt-1 text-wrap text-break text-truncate" style=" max-height: 300px;">
+                                <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quibusdam
+                                    cum officia unde
+                                    veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                                    cumque,
+                                    perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                                    consectetur
+                                    adipisicing elit. Molestiae fugiat iusto inventore cumque asperiores possimus, eius
+                                    harum
+                                    fuga ducimus, nihil quam odit, iste adipisci quaerat dolorum fugit sunt repellendus
+                                    corporis?</p>
+                            </div>
+                        </a>
+                        <!-- interactions. Upvotes and comments -->
+                        <div class="mb-1 mt-2">
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/like.png" height="20px">
+                                <label class="mr-2">3</label>
+                            </a>
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/comment.png" height="20px">
+                                <label>5</label>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- end of individual post -->
+                </div>
+
+                <hr>
+            </div>
+
+            <!-- All posts -->
+            <div class="mt-4 mx-3">
+                <!-- label -->
+                <label class="h4 mb-4 mx-3">All posts:</label>
+                <div class="container-fluid row justify-content-start px-2">
+                    <!-- new post -->
+                    <div class="col-lg-8 mx-3 mb-5 rounded" style="background-color: #ffffff;">
+                        <span class="picCircle" style="background-color: #ce5555; height: 50px; width: 50px;"></span>
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-lg btn-light newPostButton w-75 text-justify" data-toggle="modal"
+                            data-target="#exampleModalCenter" style="background-color: #f1f1f1;">
+                            Create new post
+                        </button>
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLongTitle">Create new post</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <div class="modal-body">
+                                        <label>Title</label>
+                                        <input class="form-control" type="text" placeholder="your post title">
+                                        <label>Body</label>
+                                        <textarea class="form-control justify-content-start align-content-start h-50"
+                                            type="text" placeholder="your post text body"></textarea>
+                                    </div>
+                                    <div class="modal-body input-group mb-3">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text">Upload</span>
+                                        </div>
+                                        <div class="custom-file">
+                                            <input type="file" class="custom-file-input" id="inputGroupFile01">
+                                            <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary"
+                                            data-dismiss="modal">Cancel</button>
+                                        <button type="button" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end of newPost space -->
+
+                    <!-- individual post -->
+                    <div class="col-lg-8 mx-3 mb-5 p-3 pt-1 px-5 rounded"
+                        style="background-color: #f1f1f1; min-height: 250px;">
+                        <a href="#" class="text-decoration-none" style="color: black;">
+                            <!-- post info -->
+                            <div style="height: 40px;">
+                                <span class="picCircle"></span>
+                                <lable class="font-weight-normal" style="color: black;">drStone</lable>
+                                <img class="brandimg-bb" src="images/verifiedBadge.png" height="20px">
+                                <lable class="font-weight-normal" style="color: black;">, posted on: </lable>
+                                <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                            </div>
+                            <!-- title and body -->
+                            <div class="mt-2 text-wrap text-break text-truncate" style=" max-height: 500px;">
+                                <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quibusdam
+                                    cum officia unde
+                                    veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                                    cumque,
+                                    perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                                    consectetur</p>
+                            </div>
+                        </a>
+                        <!-- interactions. Upvotes and comments -->
+                        <div class="mb-3">
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/like.png" height="20px">
+                                <label class="mr-2">3</label>
+                            </a>
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/comment.png" height="20px">
+                                <label>5</label>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- end of individual post -->
+
+                    <!-- individual post -->
+                    <div class="col-lg-8 mx-3 mb-5 p-3 pt-1 px-5 rounded"
+                        style="background-color: #f1f1f1; min-height: 250px;">
+                        <a href="#" class="text-decoration-none" style="color: black;">
+                            <!-- post info -->
+                            <div style="height: 40px;">
+                                <span class="picCircle"></span>
+                                <lable class="font-weight-normal" style="color: black;">amy98</lable>
+                                
+                                <lable class="font-weight-normal" style="color: black;">, posted on: </lable>
+                                <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                            </div>
+                            <!-- title and body -->
+                            <div class="mt-2 text-wrap text-break text-truncate" style=" max-height: 500px;">
+                                <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quibusdam
+                                    cum officia unde
+                                    veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                                    cumque,
+                                    perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                                    consectetur
+                                    adipisicing elit. Molestiae fugiat iusto inventore cumque asperiores possimus, eius
+                                    harum
+                                    fuga ducimus, nihil quam odit, iste adipisci quaerat dolorum fugit sunt repellendus
+                                    corporis?</p>
+                            </div>
+                        </a>
+                        <!-- interactions. Upvotes and comments -->
+                        <div class="mb-3">
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/like.png" height="20px">
+                                <label class="mr-2">3</label>
+                            </a>
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/comment.png" height="20px">
+                                <label>5</label>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- end of individual post -->
+
+                    <!-- individual post -->
+                    <div class="col-lg-8 mx-3 mb-5 p-3 pt-1 px-5 rounded"
+                        style="background-color: #f1f1f1; min-height: 250px;">
+                        <a href="#" class="text-decoration-none" style="color: black;">
+                            <!-- post info . name; posted on; date-->
+                            <div style="height: 40px;">
+                                <span class="picCircle"></span>
+                                <lable class="font-weight-normal" style="color: black;">concernedMom</lable>
+                                <lable class="font-weight-normal" style="color: black;">, posted on: </lable>
+                                <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                            </div>
+                            <!-- title and body -->
+                            <div class="mt-2 text-wrap text-break text-truncate" style=" max-height: 500px;">
+                                <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                                <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quibusdam
+                                    cum officia unde
+                                    veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                                    cumque,
+                                    perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                                    consectetur
+                                    adipisicing elit. Molestiae fugiat iusto inventore cumque asperiores possimus, eius
+                                    harum
+                                    fuga ducimus, nihil quam odit, iste adipisci quaerat dolorum fugit sunt repellendus
+                                    corporis?
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quibusdam
+                                    cum officia unde
+                                    veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                                    cumque,
+                                    perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                                    consectetur
+                                    adipisicing elit. Molestiae fugiat iusto inventore cumque asperiores possimus, eius
+                                    harum
+                                    fuga ducimus, nihil quam odit, iste adipisci quaerat dolorum fugit sunt repellendus
+                                    corporis?
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                    Quibusdam
+                                    cum officia unde
+                                    veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                                    cumque,
+                                    perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                                    consectetur
+                                    adipisicing elit. Molestiae fugiat iusto inventore cumque asperiores possimus, eius
+                                    harum
+                                    fuga ducimus, nihil quam odit, iste adipisci quaerat dolorum fugit sunt repellendus
+                                    corporis?asdasdasd</p>
+                            </div>
+                        </a>
+                        <!-- interactions. Upvotes and comments -->
+                        <div class="mb-3">
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/like.png" height="20px">
+                                <label class="mr-2">3</label>
+                            </a>
+                            <a href="#" class="text-decoration-none">
+                                <img class="brandimg-bb" src="images/comment.png" height="20px">
+                                <label>5</label>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- end of individual post -->
+                </div>
+            </div>
+
+        </div>
+        <!-- footer -->
+        <hr>
+        <footer class="container pt-1 pb-2">
+            <div class="row">
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">MatriCare</a>
+                </div>
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">FAQ</a>
+                </div>
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">Terms</a>
+                </div>
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">About Us</a>
+                </div>
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">Contact Us</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md">
+                    <small class="d-block mt-3 text-muted" style="text-align: center;">
+                        &copy;2021 MatriCare</small>
+                </div>
+            </div>
+        </footer>
+
+        <!-- scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+
+        </body>
+
+</html>

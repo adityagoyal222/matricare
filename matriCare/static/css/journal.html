@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+<link rel="stylesheet" href="sidebar.css">
+
+<style>
+
+</style>
+
+<!-- custom css -->
+<!-- <link rel="stylesheet" type="text/css" href="styleMatri.css"> -->
+<!-- logo for titlebar -->
+<link rel="shortcut icon" href="images/logoMatri.png" type="image/x-icon">
+<body>
+  <!-- navbar -->
+  <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #FE8187;">
+    <a class="navbar-brand" href="#">
+        <img class="brandimg-bb" src="images/logoMain.png" height="40px">
+        <label class="h4" style="color: white;">MatriCare</label>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon" style="background-color: #F2F2F2;"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+        </ul>
+        <form class="form-inline my-2 my-lg-0 mr-3">
+            <input class="form-control mr-sm-2 border-0" type="search" placeholder="Search for topics"
+                aria-label="Search">
+            <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+        </form>
+
+        <div class="form-inline my-2 my-lg-0">
+            <button class="btn btn-light my-2 my-sm-0 btn-login" style="color: #FE8187;"
+                type="submit">Login</button>
+        </div>
+
+    </div>
+</nav>
+
+
+<div id="mySidebar" class="sidebar mr-1">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+    <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a>
+  </div>
+  
+  <div id="main">
+    
+    <button class="openbtn" id="item1" onclick="openNav()">☰</button>  
+    <div class="container">
+      <!-- individual post -->
+      <div class="col-lg-12 mx-1 mt-0 p-3 pt-1 px-5 rounded"
+      style="background-color: #f1f1f1; min-height: 250px;">
+      <a href="#" class="text-decoration-none" style="color: black;">
+          <!-- post info -->
+          <div style="height: 40px; font-size:1.5em" >
+          
+              
+              <label class="font-weight-normal" style="color: rgb(248, 143, 161);">super Mom</label>
+              <label class="font-weight-normal" style="color: rgb(248, 143, 161);">, shared on: </label>
+              <label class="font-weight-normal" style="color: rgb(248, 143, 161);">12/02/2021</label>
+          </div>
+          <!-- title and body -->
+          <div class="mt-3 text-wrap text-break text-truncate" style=" max-height: 900px;">
+              <!-- <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+              <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Quibusdam
+                  cum officia unde
+                  veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                  cumque,
+                  perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                  consectetur
+                  Lorem, ipsum dolor sit amet consectetur adipisicing elit. Vel unde error saepe suscipit quo laudantium sunt aut,
+                   amet voluptatem culpa, mollitia corrupti dignissimos. Rem tempora sequi maiores dolores? Repellendus, soluta.
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus animi quibusdam officiis et 
+                tenetur consequatur sequi nisi rem. Neque eveniet culpa sequi reiciendis a amet reprehenderit nam quibusdam iste eius.</p>
+          </div>
+      </a>
+      </div>
+  </div>
+  <!-- end of individual post -->
+  </div>
+  
+  <script>
+  function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "150px";
+    document.getElementById("item1").style.display='none';
+  }
+  
+  function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft= "0";
+    document.getElementById("item1").style.display='block';
+  }
+  </script>
+
+ <!-- scripts -->
+ <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+ integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+ crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+ integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+ crossorigin="anonymous"></script>
+</body>
+</html>

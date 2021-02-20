@@ -1,0 +1,20 @@
+{% extends 'users/base.html' %}
+{% load static %}
+
+{% block content %}
+    
+        <div class="pt-3" style="background-color: #FEE4E5; min-height: 730px;">
+            <div>
+                <img class="d-block mx-auto" style="width: 850px; height: 460px;" src="{% static 'images/homePic.jpg' %}" alt="a happy picture">
+            </div>
+            <div class="d-flex text-center justify-content-center">
+                <label class="h1 w-75 font-weight-normal" style="color: #D0696A;">Welcome to MatriCare, a place to rid yourself of your queries and other worries</label>
+            </div>
+            <div class="d-flex text-center justify-content-center mt-3">
+                <a href="{% url 'forum:post_list_latest' filter='latest' %}" type="button" class=" btn btn-danger" style="background-color: #FE8187; border-color: #FE8187;">
+                    Continue to the Forums</a>
+            </div>
+        </div>
+
+{% endblock content %}
+    

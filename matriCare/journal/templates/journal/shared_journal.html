@@ -1,0 +1,63 @@
+{% extends 'users/base.html' %}
+{% load bootstrap4 %}
+{% load static %}
+
+
+{% if user.user_type == 1 %}
+    
+{% block content %}    
+    <link rel="stylesheet" href="{% static 'css/sidebar.css' %}">
+    <div id="mySidebar" class="sidebar mr-1">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">x</a>
+        <h3>Shared Journals</h3>
+        {% for i in journals %}
+            <a href="{% url 'journal:shared_journal' pk=i.0.user.pk %}">{{i.0.user.first_name}} {{i.0.user.last_name}}</a><br>
+        {% endfor %}
+        </div>
+      
+      <div id="main" style="min-height: 700px;">
+        
+        <button class="openbtn" id="item1" onclick="openNav()">☰</button>  
+        <div class="container">
+            <div style="margin: 20px 0px; font-weight: bold;">{{logs.0.user.first_name}} {{logs.0.user.last_name}}'s Journal</div>
+            {% for log in logs %}
+          <!-- individual post -->
+          <div class="col-lg-12 mx-1 mt-0 p-3 pt-1 px-5 rounded"
+          style="background-color: #FFE484;">
+          <a href="#" class="text-decoration-none" style="color: black;">
+              <!-- post info -->
+              <div style="height: 40px; font-size:1.5em" >
+                  <label class="font-weight-light">Logged on: </label>
+                  <label class="font-weight-light">{{log.created_date}}</label>
+              </div>
+              <!-- title and body -->
+              <div class="mt-3 text-wrap text-break text-truncate" style=" max-height: 900px;">
+                  <!-- <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                  <p class="font-weight-light">{{log.text}}</p>
+              </div>
+          </a>
+          </div>
+      </div>
+      <!-- end of individual post -->
+      {% endfor %}
+      </div>
+      
+      <script>
+      function openNav() {
+        document.getElementById("mySidebar").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "150px";
+        document.getElementById("item1").style.display='none';
+      }
+      
+      function closeNav() {
+        document.getElementById("mySidebar").style.width = "0";
+        document.getElementById("main").style.marginLeft= "0";
+        document.getElementById("item1").style.display='block';
+      }
+      </script>
+    
+
+
+{% endblock content %}
+
+{% endif %}
