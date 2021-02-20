@@ -1,0 +1,86 @@
+
+{% load bootstrap4 %}
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/shortcuts/infinite.js" integrity="sha512-gmJ7g3lfVXyDAOdhgCzdN1mZMsC/bE421/f4k4rIn6Pqsn7ibyDrXe4IlnJu0+1dE31dvTI4/ILV9x/dcowGaw==" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+<form type="GET" action="." style="margin: 0">
+    <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
+    <button id="search_submit" type="submit" >Submit</button>
+</form>
+
+<label>Filter By:</label>
+
+
+{% if filter_type == "latest" %}
+    <select name="filter" id="filter_dropdown">
+        <option value="{% url 'forum:post_list_latest' filter='latest' %}">Latest</option>
+        <option value="{% url 'forum:post_list_popular' filter='popular' %}">Most Popular</option>
+    </select>
+{% elif filter_type == "popular" %}
+    <select name="filter" id="filter_dropdown">
+        <option value="{% url 'forum:post_list_popular' filter='popular' %}">Most Popular</option>
+        <option value="{% url 'forum:post_list_latest' filter='latest' %}">Latest</option>
+    </select>
+{% endif %}
+
+{% for post in posts %}
+    <p>
+        <a href="{% url 'forum:post_detail' pk=post.pk %}">
+            {{post.author}}<br>
+            {{post.title}}<br>
+            {{post.likes}}
+            {{post.comment.count}}<br>
+        </a>
+    </p>
+    
+
+{% endfor %}
+
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    Create Post
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">New Post</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form method="POST" action="." enctype="multipart/form-data">
+                {% csrf_token %}
+                {% bootstrap_form create_post_form %}
+                {% bootstrap_form add_image_form %}
+                <input type="submit" class="btn btn-primary" value="Create Post"
+                                                name="create_post">
+            </form>            
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+    $(function(){
+      // bind change event to select
+        $('#filter_dropdown').on('change', function () {
+          var url = $(this).val(); // get selected value
+          if (url) { // require a URL
+              window.location = url; // redirect
+        }
+        return false;
+        });
+    });
+</script>

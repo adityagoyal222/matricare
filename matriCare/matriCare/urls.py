@@ -15,12 +15,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
-
-from django.http import HttpResponseRedirect
+from django.conf.urls import url
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('users/',include('users.urls')),
-
- 
+    url(r'^forum/', include('forum.urls', namespace="forum")),
+    url(r'^users/',include('users.urls', namespace="users)),
 ]

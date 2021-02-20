@@ -1,3 +1,4 @@
+from django.http.response import HttpResponse
 from django.shortcuts import render
 
 # Create your views here.
@@ -34,6 +35,3 @@ def signUpView(request):
         }
 
     return render(request, 'users/signup.html', context)
-
-
-
