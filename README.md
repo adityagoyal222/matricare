@@ -1,7 +1,7 @@
 # MatriCare
 
-MatriCare is an webapp enabled discussion forum for new and expecting mothers. Questions can be asked to the community of other mothers and experts of related field.
-![HomePage](https:github.com/adityagoyal222/matricare/blob/master/home-screen.png?raw=true)
+MatriCare is an webapp enabled discussion forum for new and expecting mothers. Questions can be asked to the community of other mothers and experts of related field
+![HomePage](https://github.com/adityagoyal222/matricare/blob/master/home-screen.png?raw=true)
 
 ## Main Features
 <ul>
