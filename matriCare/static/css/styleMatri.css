@@ -1,0 +1,58 @@
+/* login page */
+.loginContinue {
+  background-color: #fe8187;
+  width: 250px;
+  margin: auto;
+  color: white;
+}
+.gotoSignup {
+  color: #717171;
+}
+.loginHeader {
+  margin-bottom: 100px;
+}
+.signupHeader {
+  margin-bottom: 60px;
+}
+.picCircle {
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+  left: 1px;
+  top: 6px;
+  background: #50abff;
+}
+.newPostButton{
+  position: relative;
+  left: 10px;
+  top: -13px;
+}
+a{
+  color: black;
+  text-decoration: none;
+}
+
+.posted-on {
+  position: relative;
+  right: -550px;
+}
+
+@media only screen and (max-width: 989px) {
+  .loginPic {
+    display: none;
+  }
+  .signupHeader {
+    font-size: 30px;
+  }
+  .halfEntry{
+    margin-bottom: 5px;
+  }
+}
+@media only screen and (max-width: 1463px) and (min-width: 989px) {
+  .signupHeader {
+    font-size: 38px;
+  }
+}
+

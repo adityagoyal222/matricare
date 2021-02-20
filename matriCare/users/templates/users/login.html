@@ -1,45 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+{% extends "users/base.html" %}
 
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<!------ Include the above in your HEAD tag ---------->
+{% load static %}
+{% load bootstrap4 %}
 
-<body>
-    
+{% block content %}
 
+ <!--main body content -->
+ <div class="position-relative overflow-hidden py-0 px-5 px-md-5 m-0 text-center">
+  <!-- login content -->
+  <div class="my-4 row p-0 justify-content-center">
+      <div class="col-lg-2"></div>
+      <!--container for shadow -->
+      <div class="container row col-lg-8 p-0 shadow" style="background-color: white;">
+          <!-- input space -->
+          <div class="col-lg-6 p-0 m-0 align-content-center">
+              <!---->
+              <div class=" text-center w-100 py-5 h-100 rounded-0 justify-content-center">
+                  <!---->
+                  <!-- form below -->
+                  <form class="loginInputCard form-signin mt-5" method="POST">
+                      {% csrf_token %}
+                      <!---->
+                      <!-- label -->
 
-<div class="wrapper fadeInDown">
-  <div id="formContent">
-    <!-- Tabs Titles -->
-
-    <!-- Icon -->
-    <div class="fadeIn first">
-      <img src="http://danielzawadzki.com/codepen/01/icon.svg" id="icon" alt="User Icon" />
-    </div>
-
-    <!-- Login Form -->
-    <form method="POST">
-        {% csrf_token %}
-      <input type="text" id="login" class="fadeIn second" name="username" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
-      <input type="submit" class="fadeIn fourth" value="Log In">
-    </form>
-
-    <!-- Remind Passowrd -->
-    <div id="formFooter">
-      <a class="underlineHover" href="#">Forgot Password?</a>
-    </div>
-
+                      <h1 class="loginHeader h1 font-weight-bold">Login</h1>
+                      <!-- full email/username entry -->
+                      <div class="form-group mb-4">
+                          <input type="text" id="inputEmail" class="loginTextInput form-control-lg border" name='username'
+                              placeholder="username" required>
+                      </div>
+                      <!-- full password entry -->
+                      <div class="form-group mb-5">
+                          <input type="password" id="inputPassword" name="password"
+                              class="loginTextInput form-control-lg border" placeholder="password" required>
+                      </div>
+                      <!-- buttons -->
+                      <div class="loginButtonGroup form-group mb-4">
+                          <button class="loginContinue btn btn-lg  btn-danger btn-block border-0"
+                              type="submit">Continue</button>
+                          <a href="{% url 'users:signup' %}" type="button" class="gotoSignup btn btn-link">New here?
+                              Create an account</a>
+                      </div>
+                  </form>
+              </div>
+          </div>
+          <!-- picture space-->
+          <div class="col-lg-6 p-0 m-0 loginPic">
+              <!---->
+              <div class="text-center p-0 m-auto rounded-0">
+                  <img class="w-100 h-100" src="{% static 'images/loginPic.jpg' %}" alt="a happy picture">
+              </div>
+          </div>
+      </div>
+      <div class="col-lg-2"></div>
   </div>
 </div>
-</body>
-</head>
 
-</html>
+{% endblock content %}

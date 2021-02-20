@@ -2,10 +2,11 @@ from django.shortcuts import redirect, render
 from django.views.generic import TemplateView, FormView, DetailView
 from .models import Log, Collaborator
 from .forms import CreateLogForm, ShareForm
+from django.contrib.auth.mixins import LoginRequiredMixin
 from users.models import User
 
 # Create your views here.
-class LogListView(FormView, TemplateView):
+class LogListView(FormView, TemplateView, LoginRequiredMixin):
     model = Log
     template_name = "journal/log_list.html"
     form_class = CreateLogForm
@@ -47,7 +48,7 @@ class LogListView(FormView, TemplateView):
 
         return render(request, self.template_name, self.get_context_data(**context))
     
-class ShareJournalView(DetailView):
+class ShareJournalView(DetailView, LoginRequiredMixin):
     model = User
     template_name = "journal/shared_journal.html"
 

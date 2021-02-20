@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from django.urls.base import reverse
 from django.views.generic import ListView, FormView, DetailView, TemplateView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import Post, PostImage, Comment, PostLike, CommentLike
@@ -23,6 +24,10 @@ class PostListView(FormView, TemplateView):
             context['filter_type'] = "popular"
         if self.posts:
             posts = self.posts
+        
+        popular_posts = Post.objects.order_by('-likes')[:3]
+        print(popular_posts)
+        context['popular_posts'] = popular_posts
         context['posts'] = posts
 
         if 'create_post_form' not in context:
@@ -70,7 +75,8 @@ class PostDetailView(FormView, DetailView, LoginRequiredMixin):
         post = Post.objects.filter(pk=self.kwargs['pk']).first()
         comments = Comment.objects.filter(post = post)
 
-        post_image = PostImage.objects.filter(post = post)
+        post_image = PostImage.objects.filter(post = post).first()
+        print(post_image)
         liked_post = PostLike.objects.filter(liked_post=self.kwargs['pk'], liker_user = self.request.user).first()
         if liked_post != None:
             liked_post = liked_post.liked
