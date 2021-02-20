@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^forum/', include('forum.urls', namespace="forum")),
     url(r'^users/',include('users.urls', namespace="users")),
+    url(r'^journal/', include('journal.urls', namespace="journal")),
 ]

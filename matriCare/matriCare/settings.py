@@ -44,6 +44,7 @@ INSTALLED_APPS = [
 
     'users',
     'forum',
+    'journal',
 ]
 
 MIDDLEWARE = [
