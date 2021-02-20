@@ -14,12 +14,8 @@ def signUpView(request):
 
         user_form =UserForm(request.POST)
 
-        errors=str(user_form.errors)
-        print(errors)
-
         if user_form.is_valid():
             # user = user_form.save(commit=False)
-            print("ewwww")
             user_form.save()
 
             return HttpResponseRedirect(reverse_lazy("users:login"))
