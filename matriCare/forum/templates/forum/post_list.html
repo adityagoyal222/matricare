@@ -4,11 +4,6 @@
 
 
 {% block content %}
-<!-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns" crossorigin="anonymous"></script>
-
-<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous"> -->
 <link rel="stylesheet" href="{% static 'css/styleMatri.css' %}">
     
  
@@ -19,90 +14,9 @@
         }
     }
   </style>
-  <!--
-  <form type="GET" action="." style="margin: 0">
-      <input  id="search_box" type="text" name="search_box"  placeholder="Search..." >
-      <button id="search_submit" type="submit" >Submit</button>
-  </form>
-
-  <label>Filter By:</label>
 
 
-  {% if user.user_type == 1 %}
-    <a href="{% url 'journal:redirect' %}" class="btn btn-primary">Shared Checklists</a>
-  {% endif %}
-
-  Popular Posts:
-  {% for popular_post in popular_posts %}
-    <a href="{% url 'forum:post_detail' pk=popular_post.pk %}">
-      {{popular_post.author}}
-      {% if popular_post.author.user_type == 1 %}
-        Doctor
-      {% endif %}
-      <br>
-      {{popular_post.title}}       
-      <br>
-      {{popular_post.likes}}
-      {{popular_post.comment.count}}
-      {{popular_post.created_date}}<br>
-    </a>
-  {% endfor %}
-  <br>
-  All Posts:
-  {% for post in posts %}
-      <p>
-          <a href="{% url 'forum:post_detail' pk=post.pk %}">
-              {{post.author}}
-              {% if post.author.user_type == 1 %}
-                Doctor
-              {% endif %}
-              <br>
-              {{post.title}}
-              <br>
-              {{post.likes}}
-              {{post.comment.count}}
-              {{post.created_date}}<br>
-          </a>
-      </p>
-      
-
-  {% endfor %}
-
-
-  {% if user.is_authenticated %}
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-      Create Post
-    </button>
-
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">New Post</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-              <form method="POST" action="." enctype="multipart/form-data">
-                  {% csrf_token %}
-                  {% bootstrap_form create_post_form %}
-                  {% bootstrap_form add_image_form %}
-                  <input type="submit" class="btn btn-primary" value="Create Post"
-                                                  name="create_post">
-              </form>            
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  {% endif %}
-  -->
-
-  <div class="position-relative overflow-hidden py-0 px-4 m-0 mt-3">
+  <div class="position-relative overflow-hidden py-0 px-4 m-0 mt-3" style="min-height: 700px;">
     <!-- popular posts -->
     <div class="mt-4 mx-3">
         <label class="h4 mb-4 mx-3">Popular posts:</label>
