@@ -25,13 +25,13 @@ Activate virtual environment
 venv\Scripts\activate
 ```
 
-Install all the dependencies from matricare/requirements.txt
+Install all the dependencies from matriCare/requirements.txt
 
 ```
 pip install -r requirments.txt
 ```
 
-Execute all migrations in the matricare/matriCare directory
+Execute all migrations in the matriCare/matriCare directory
 
 ```
 python manage.py migrate
@@ -39,14 +39,14 @@ python manage.py makemigrations
 python manage.py migrate
 ```
 
-Now load the data to the database from matricare/MatriCare/datadump.json
+Now load the data to the database from matriCare/matriCare/datadump.json
 ```
 python manage.py loaddata datadump.json
 ```
 
 ## Usage
 
-After the installation is complete, the web app is ready to launch. Go to matricare/matriCare directory where manage.py is located.
+After the installation is complete, the web app is ready to launch. Go to matriCare/matriCare directory where manage.py is located.
 ```
 python manage.py runserver
 ```
