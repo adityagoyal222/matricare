@@ -25,15 +25,16 @@
                 <div class=" text-center w-100 py-5 h-100 rounded-0 justify-content-center">
                     <!---->
                     <!-- form below -->
-                    <form class="form-signin mt-5">
+                    <form class="form-signin mt-5" method="POST">
                         <!---->
                         <!-- label -->
                         <h1 class="signupHeader h1 font-weight-bold">Signup</h1>
                         <!-- input elements -->
                         <div class="mb-3 px-4">
+                            {% csrf_token %}
                             <!-- full username entry -->
                             <div class="form-group mb-3">
-                            {% csrf_token %}
+                            
                                 <input type="text" id="inputUsername" name="username"
                                     class=" form-control border" placeholder="username" required>
                             </div>
@@ -87,9 +88,4 @@
     </div>
 </div>
 {% endblock content %}
-    <!-- <form action="" method="post">
-        {% csrf_token %}
-        {{user_form.as_p}}
-
-    <input type="submit" value="submit">
-    </form> -->
+  
