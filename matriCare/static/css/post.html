@@ -1,0 +1,218 @@
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Home Forum</title>
+
+        <!-- links for css and bootstrap -->
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+            integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+
+
+        <!-- custom css -->
+        <link rel="stylesheet" type="text/css" href="css/styleMatri.css">
+        <!-- logo for titlebar -->
+        
+        <!-- scripts -->
+        <!-- <script type="text/javascript" src="script/nav.js"></script> -->
+
+        <style>
+            @media only screen and (max-width: 767px) {
+                .loginPic {
+                    display: none;
+                }
+            }
+        </style>
+
+    </head>
+
+    <body>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg sticky-top" style="background-color: #FE8187;">
+            <a class="navbar-brand" href="#">
+                <img class="brandimg-bb" src="images/logoMain.png" height="40px">
+                <lable class="h4" style="color: white;">MatriCare</lable>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                </ul>
+                <form class="form-inline my-2 my-lg-0 mr-3">
+                    <input class="form-control mr-sm-2 border-0" type="search" placeholder="Search for topics"
+                        aria-label="Search">
+                    <button class="btn btn-info my-2 my-sm-0" type="submit">Search</button>
+                </form>
+
+                <div class="form-inline my-2 my-lg-0">
+                    <a href="#" class="btn btn-light my-2 my-sm-0 btn-login" style="color: #FE8187;" type="">Login</a>
+                </div>
+
+            </div>
+        </nav>
+        <!--main body content -->
+        <div class="position-relative overflow-hidden py-0 px-4 m-0 mt-3" style="min-height: 700px;">
+
+            <!-- individual post -->
+            <div class="col-lg-8 mx-3 mb-5 p-3 pt-1 px-5 rounded" style="background-color: #f1f1f1; min-height: 250px;">
+                <a href="#" class="text-decoration-none" style="color: black;">
+                    <!-- post info -->
+                    <div style="height: 40px;">
+                        <span class="picCircle"></span>
+                        <lable class="font-weight-normal" style="color: black;">worriedMom</lable>
+                        <!-- <img class="brandimg-bb" src="images/verifiedBadge.png" height="20px"> -->
+                        <lable class="font-weight-normal" style="color: black;">, posted on: </lable>
+                        <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                    </div>
+                    <!-- title and body -->
+                    <div class="mt-2 text-wrap text-break text-truncate" style=" max-height: 500px;">
+                        <p class="h3">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p class="font-weight-light" style="font-size: 18px;">Lorem ipsum dolor sit amet, consectetur
+                            adipisicing elit.
+                            Quibusdam
+                            cum officia unde
+                            veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                            cumque,
+                            perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                            consectetur</p>
+                    </div>
+                </a>
+                <!-- interactions. display count of Upvotes and comments -->
+                <div class="mb-3">
+                    <a href="#" class="text-decoration-none">
+                        <img class="brandimg-bb" src="images/like.png" height="20px">
+                        <label class="mr-2">3</label>
+                    </a>
+                    <a href="#" class="text-decoration-none">
+                        <img class="brandimg-bb" src="images/comment.png" height="20px">
+                        <label>2</label>
+                    </a>
+                </div>
+                <!-- comment input -->
+                <div>
+                    <hr>
+                    <label>Add a comment:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1"
+                        placeholder="What are your thoughts?" rows="2"></textarea>
+                    <div class="d-flex justify-content-end mt-2"">
+                        <span></span>
+                        <button class=" btn btn-info">Add comment</button>
+                    </div>
+                </div>
+
+                <!-- comment -->
+                <div>
+                    <hr>
+                    <!-- commenter info -->
+                    <div style="height: 40px;">
+                        <span class="picCircle" style="background-color: #a2c71f;"></span>
+                        <lable class="font-weight-normal" style="color: black;">drStone</lable>
+                        <img class="brandimg-bb" src="images/verifiedBadge.png" height="20px">
+                        <lable class="font-weight-normal" style="color: black;">, commented on: </lable>
+                        <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                    </div>
+                    <!-- title and body -->
+                    <div class="mt-2 text-wrap text-break text-truncate" style=" max-height: 500px;">
+                        <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quibusdam
+                            cum officia unde
+                            veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                            cumque,
+                            perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                            consectetur</p>
+                    </div>
+                    <!-- comment likes -->
+                    <div class="mb-3">
+                        <a href="#" class="text-decoration-none">
+                            <img class="brandimg-bb" src="images/like.png" height="20px">
+                            <label class="mr-2">3</label>
+                        </a>
+                    </div>
+                </div>
+                <!-- end of one comment -->
+
+                <!-- comment -->
+                <div>
+                    <hr>
+                    <!-- commenter info -->
+                    <div style="height: 40px;">
+                        <span class="picCircle" style="background-color: #9431c2;"></span>
+                        <lable class="font-weight-normal" style="color: black;">drPaper</lable>
+                        <img class="brandimg-bb" src="images/verifiedBadge.png" height="20px">
+                        <lable class="font-weight-normal" style="color: black;">, commented on: </lable>
+                        <lable class="font-weight-normal" style="color: black;">12/02/2021</lable>
+                    </div>
+                    <!-- title and body -->
+                    <div class="mt-2 text-wrap text-break text-truncate" style=" max-height: 500px;">
+                        <p class="font-weight-light">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                            Quibusdam
+                            cum officia unde
+                            veritatis ut. Ipsum et dignissimos, vero consectetur in quaerat. Odit consequuntur
+                            cumque,
+                            perferendis a exercitationem libero dolor facere. Lorem ipsum dolor, sit amet
+                            consectetur</p>
+                    </div>
+                    <div class="mb-3">
+                        <a href="#" class="text-decoration-none">
+                            <img class="brandimg-bb" src="images/like.png" height="20px">
+                            <label class="mr-2">3</label>
+                        </a>
+                    </div>
+                </div>
+                <!-- end of one comment -->
+
+
+
+            </div>
+            <!-- end of individual post -->
+
+
+        </div>
+        </div>
+
+        </div>
+        <!-- footer -->
+        <hr>
+        <footer class="container pt-1 pb-2">
+            <div class="row">
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">MatriCare</a>
+                </div>
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">FAQ</a>
+                </div>
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">Terms</a>
+                </div>
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">About Us</a>
+                </div>
+                <div class="col-6 col-md">
+                    <a class="list-unstyled text-muted" href="#">Contact Us</a>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12 col-md">
+                    <small class="d-block mt-3 text-muted" style="text-align: center;">
+                        &copy;2021 MatriCare</small>
+                </div>
+            </div>
+        </footer>
+
+        <!-- scripts -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+            crossorigin="anonymous"></script>
+
+    </body>
+
+</html>

@@ -3,68 +3,130 @@
 {% load customtags %}
 {% load static %}
 
+
+{% if user.is_authenticated %}
+
 {% block content %}
-    {% if user.is_authenticated %}
-    <p>
-        {{post.author}} 
-        {% if post.author.user_type == 1 %}
-            Doctor
-        {% endif %}
-    </p>
-    <p>
-        {{post.title}}
-            
-    </p>
-    <p>
-        {{post.text_content}}
-    </p>
     
-    {% if post_image %}
-    <img src="{{post_image.image.url}}" style="object-fit: cover; height: 150px; width: 250px;">
-    {% endif %}
+    <style>
+        @media only screen and (max-width: 767px) {
+            .loginPic {
+                display: none;
+            }
+        }
+    </style>
 
-    <form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
-        {% csrf_token %}
-        {% if liked_post %}
-            <input type="submit" class="btn btn-danger" id="post-dislike" value="Dislike" name="dislike_post">
-        {% else %}
-            <input type="submit" class="btn btn-success" id="post-like" value="Like" name="like_post">
-        {% endif %}
+    <!--main body content -->
+    <div class="position-relative overflow-hidden py-0 px-4 m-0 mt-3" style="min-height: 700px;">
 
-    </form>
+        <!-- individual post -->
+        <div class="col-lg-8 mx-3 mb-5 p-3 pt-1 px-5 rounded" style="background-color: #f1f1f1; min-height: 250px;">
+            <a href="#" class="text-decoration-none" style="color: black;">
+                <!-- post info -->
+                <div style="height: 40px;">
+                    <span class="picCircle"></span>
+                    <label class="font-weight-normal" style="color: black;">{{post.author}}</label>
+                    {% if post.author.user_type == 1 %}
+                        <img class="brandimg-bb" src="{% static 'images/verifiedBadge.png' %}" height="20px">
+                    {% endif %}
+                    
+                    <label class="font-weight-light" style="color: black;">Posted on: </label>
+                    <label class="font-weight-light" style="color: black;">{{post.created_date}}</label>
+                </div>
+                <!-- title and body -->
+                <div class="mt-2 text-wrap text-break text-truncate" style=" max-height: 500px;">
+                    <p class="h3">{{post.title}}</p>
+                    <p class="font-weight-light" style="font-size: 18px;">{{post.text_content}}</p>
+                    {% if post_image %}
+                        <img src="{{post_image.image.url}}" style="object-fit: cover; height: 150px; width: 250px;">
+                    {% endif %}
+                </div>
+            </a>
+            <!-- interactions. display count of Upvotes and comments -->
+            <div class="mb-3">
+                <form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
+                    {% csrf_token %}
+                    {% if liked_post %}
+                        <button id="post-dislike" name="dislike_post" class="text-decoration-none border-0">
+                            <img class="brandimg-bb" src="{% static 'images/liked.png' %}" height="20px">
+                            <label class="mr-2">{{post.likes}}</label>
+                        </button>
+                    {% else %}
+                        <button id="post-like" name="like_post" class="text-decoration-none border-0">
+                            <img class="brandimg-bb" src="{% static 'images/like.png' %}" height="20px">
+                            <label class="mr-2">{{post.likes}}</label>
+                        </button>
+                    {% endif %}
+                    <i class="text-decoration-none">
+                        <img class="brandimg-bb" src="{% static 'images/comment.png' %}" height="20px">
+                        <label>{{post.comment.count}}</label>
+                    </i>
+                </form>
+                
+            </div>
+            <!-- comment input -->
+            <div>
+                <hr>
+                <form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
+                    {% csrf_token %}
+                <label>Add a comment:</label>
+                <textarea name="comment" class="form-control" id="exampleFormControlTextarea1"
+                    placeholder="What are your thoughts?" rows="2"></textarea>
+                <div class="d-flex justify-content-end mt-2">
+                    <span></span>
+                    <input type="submit" class="btn btn-info" value="Add Comment" name="add_comment">
+                </div>
+                </form>
+            </div>
 
-    <p>Likes: {{post.likes}}   Comments: {{post.comment.count}}</p>
-
-    <form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
-        {% csrf_token %}
-        {% bootstrap_form comment_form %}
-        <input type="submit" class="btn btn-primary" value="Add Comment"
-                                        name="add_comment">
-    </form>
-
-    {% for comment in comments %}
-        <p>{{comment.commentor}}
-            {% if comment.commentor.user_type == 1 %}
-                Doctor
-            {% endif %}<br>
-        {{comment.comment}}
-        {{comment.likes}}</p>
-
-        <form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
-            {% csrf_token %}
-            <input type="hidden" name="comment_data" value="{{comment.pk}}">
             
-            {% if comment|liked_comment:user %}
-                hello
-                <input type="submit" class="btn btn-danger dislike-comment" id="comment-dislike-{{comment.pk}}" value="Dislike" name="dislike_comment">
-            {% else %}
-                nope
-                <input type="submit" class="btn btn-success" id="comment-like-{{comment.pk}}" value="Like" name="like_comment">
-            {% endif %}
-        </form>
-    {% endfor %}
+            {% for comment in comments %}
+                <!-- comment -->
+            <div>
+                <hr>
+                <!-- commenter info -->
+                <div style="height: 40px;">
+                    <span class="picCircle" style="background-color: #a2c71f;"></span>
+                    <label class="font-weight-normal" style="color: black;">{{comment.commentor}}</label>
+                    {% if comment.commentor.user_type == 1 %}
+                        <img class="brandimg-bb" src="images/verifiedBadge.png" height="20px">
+                    {% endif %}
+                    <label class="font-weight-light" style="color: black;">Commented on: </label>
+                    <label class="font-weight-light" style="color: black;">{{comment.created_date}}</label>
+                </div>
+                <!-- title and body -->
+                <div class="mt-2 text-wrap text-break text-truncate" style=" max-height: 500px;">
+                    <p class="font-weight-light">{{comment.comment}}</p>
+                </div>
+                <!-- comment likes -->
+                <div class="mb-3">
+                        <form method="POST" action="{% url 'forum:post_detail' pk=post.pk %}">
+                            {% csrf_token %}
+                            <input type="hidden" name="comment_data" value="{{comment.pk}}">
+                            
+                            {% if comment|liked_comment:user %}
+                                <button class="text-decoration-none dislike-comment border-0" id="comment-dislike-{{comment.pk}}" name="dislike_comment">
+                                    <img class="brandimg-bb" src="{% static 'images/liked.png' %}" height="20px">
+                                    <label class="mr-2">{{comment.likes}}</label>
+                                </button>
+                            {% else %}
+                                <button class="text-decoration-none like-comment border-0" id="comment-like-{{comment.pk}}" name="like_comment">
+                                    <img class="brandimg-bb" src="{% static 'images/like.png' %}" height="20px">
+                                    <label class="mr-2">{{comment.likes}}</label>
+                                </button>
+                            {% endif %}
+                        </form>
+                </div>
+            </div>
+            <!-- end of one comment -->
+            {% endfor %}
 
-    {% endif %}
+        </div>
+        <!-- end of individual post -->
+
+
+    </div>
 
 {% endblock content %}
-    
+
+{% endif %}

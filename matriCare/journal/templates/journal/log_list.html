@@ -3,29 +3,11 @@
 {% load static %}
 
 
+{% if user.user_type == 2 %}
+    
 {% block content %}
-    {% if user.user_type == 2 %}
-    My Journal:
-        <form method="POST" action=".">
-            {% csrf_token %}
-            {% bootstrap_form create_log_form %}
-            <input type="submit" class="btn btn-primary" value="Create Log" name="create_log">
-        </form>
-
-        My Logs:
-        {% for log in logs %}
-            <div>
-                <p>
-                    {{log.text}}
-                    {{log.created_date}}
-                </p>
-            </div>
-        {% endfor %}
-
-        <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-        Share
-    </button>
+<link rel="stylesheet" href="{% static 'css/styleMatri.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />    
     
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -51,8 +33,39 @@
         </div>
     </div>
 
-    {% endif %}
+    <div id="main" style="min-height: 700px;">
+        
+        <div class="container">
+            <div class="my-4" style="margin: 20px 0px; font-weight: bold; font-size: 18px;">{{user.first_name}} {{user.last_name}}'s Journal <i class="fas fa-share-alt fa-lg mx-4" data-toggle="modal" data-target="#exampleModal">
+            </i></div>
+            {% for log in logs %}
+                <!-- individual post -->
+                <div class="col-lg-12 mx-1 my-4 p-3 pt-1 px-5 rounded"
+                style="background-color: #FFE484;">
+                <a href="#" class="text-decoration-none" style="color: black;">
+                    <!-- post info -->
+                    <div style="height: 40px; font-size:0.9em" >
+                        <label class="font-weight-light">Logged on: </label>
+                        <label class="font-weight-light">{{log.created_date}}</label>
+                    </div>
+                    <!-- title and body -->
+                    <div class="mt-3 text-wrap text-break text-truncate" style=" max-height: 900px; font-size:1.5em">
+                        <!-- <p class="h4">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p> -->
+                        <p class="font-weight-light">{{log.text}}</p>
+                    </div>
+                </a>
+                </div>
+                {% endfor %}
+                <form class="my-5" method="POST" action=".">
+                    {% csrf_token %}
+                    <textarea name="text" class="form-control" id="exampleFormControlTextarea1"
+                            placeholder="New Log" rows="2"></textarea>
+                    <input type="submit" class="btn btn-success my-1" value="Create New Log" name="create_log">
+                </form>
+            
+        </div>
+    </div>
 {% endblock content %}
-    
+{% endif %}
 
 
