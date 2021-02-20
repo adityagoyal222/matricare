@@ -36,8 +36,13 @@ Execute all migrations in the matricare/matriCare directory
 
 ```
 python manage.py migrate
-python manage.py maekmigrations
+python manage.py makemigrations
 python manage.py migrate
+```
+
+Now load the data to the database from matricare/MatriCare/datadump.json
+```
+python manage.py loaddata datadump.json
 ```
 
 ## Usage
