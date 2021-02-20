@@ -6,11 +6,10 @@ MatriCare is an webapp enabled discussion forum for new and expecting mothers. Q
 ## Main Features
 <ul>
   <li>Create new posts for your queries.</li>
-  *forum.png*
   <li>'Like' and comment on others' posts.</li>
   <li>Keep a personal journal, and if needed, share them with your doctors for easier and more accurate diagnosis.</li>
   <li>Get wonderful advice from verified doctors</li>
-  </ul>
+</ul>
 
 ## Installation
 
