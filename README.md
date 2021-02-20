@@ -20,6 +20,12 @@ Create a new Python virtual environment
 python -m venv venv
 ```
 
+Activate virtual environment
+
+```
+venv\Scripts\activate
+```
+
 Install all the dependencies from matricare/requirements.txt
 
 ```
