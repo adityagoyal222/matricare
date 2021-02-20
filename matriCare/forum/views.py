@@ -10,6 +10,7 @@ class PostListView(FormView, TemplateView):
     model = Post
     template_name = "forum/post_list.html"
     form_class = CreatePostForm
+    posts = None
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
@@ -20,7 +21,8 @@ class PostListView(FormView, TemplateView):
         elif self.kwargs['filter'] == "popular":
             posts = Post.objects.order_by('-likes')
             context['filter_type'] = "popular"
-        
+        if self.posts:
+            posts = self.posts
         context['posts'] = posts
 
         if 'create_post_form' not in context:
@@ -30,6 +32,18 @@ class PostListView(FormView, TemplateView):
             context['add_image_form'] = AddImageForm()
 
         return context
+
+    def get(self, request, *args, **kwargs):
+        context = {}
+        if request.method == 'GET':
+            search_query = request.GET.get('search_box', None)
+            queryset = []
+            for i in Post.objects.all():
+                if search_query:
+                    if i.title.find(search_query) != -1:
+                        queryset.append(i)
+            self.posts = queryset
+        return render(request, self.template_name, self.get_context_data())
 
     def post(self, request, *args, **kwargs):
         
@@ -118,5 +132,3 @@ class PostDetailView(FormView, DetailView, LoginRequiredMixin):
             liked_comment.not_liked()
         
         return render(request, self.template_name, self.get_context_data(**context))
-
-
