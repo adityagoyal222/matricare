@@ -20,5 +20,5 @@ from django.conf.urls import url
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^forum/', include('forum.urls', namespace="forum")),
-    url(r'^users/',include('users.urls', namespace="users)),
+    url(r'^users/',include('users.urls', namespace="users")),
 ]

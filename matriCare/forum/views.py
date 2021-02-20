@@ -34,7 +34,6 @@ class PostListView(FormView, TemplateView):
         return context
 
     def get(self, request, *args, **kwargs):
-        context = {}
         if request.method == 'GET':
             search_query = request.GET.get('search_box', None)
             queryset = []
